@@ -1,0 +1,22 @@
+<body>
+    <div class="page login-page">
+      <div class="container">
+        <div class="form-outer text-center d-flex align-items-center">
+          <div class="form-inner">
+            <div class="logo text-uppercase"><span>Attendance System</span><strong class="text-primary">Login</strong></div>
+            <form class="text-left form-validate" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group-material">
+                <input id="register-username" formControlName="username" placeholder="Username" type="text" data-msg="Please enter your username" class="input-material" required>
+              </div>
+              <div class="form-group-material">
+                <input id="register-password" formControlName="password" placeholder="Password" type="password" data-msg="Please enter your password" class="input-material" required>
+              </div>
+              <div class="form-group text-center">
+                <input id="login" type="submit" value="Login" class="btn btn-primary">
+              </div>
+            </form><a href="#" class="forgot-pass">Forgot Password?</a><small>Do not have an account? </small><a href="signup" class="signup">Signup</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>

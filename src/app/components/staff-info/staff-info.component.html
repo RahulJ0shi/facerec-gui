@@ -1,0 +1,55 @@
+<section>
+    <div class="container-fluid">
+      <!-- Page Header-->
+      <header> 
+      </header>
+    <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <!-- Daily Feed Widget-->
+      <div id="staff-info" class="card updates daily-feeds">
+        <div class="card-header" style="padding-bottom: 0px;">
+          <div class="row">
+          <h4 class="h4 display col-lg-5 col-md-5">STAFF INFO</h4>
+          <div class="col-lg-4 col-md-4">
+            <div class="form-group" >
+              <select class="form-control" [(ngModel)]="Departments.branch" (ngModelChange)="filterBybranch(Departments.branch)">        
+                <option selected [ngValue]='All'>All Department</option>
+                <option *ngFor="let d of Departments">{{d.branch}}</option>                                
+              </select>
+          </div>      
+        </div>    
+          <div class="search-container col-lg-3 col-md-3">
+            <form action="">
+              <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder=" search name " [(ngModel)]="searchText" autocomplete="off">
+              </div>
+            </form>
+          </div>   
+        </div>
+        </div>
+        <div id="feeds-box" role="tabpanel" class="collapse show">
+          <div class="feed-box">
+            <ul class="feed-elements list-unstyled  pre-scrollable">
+              <!-- List-->
+              <ng-container  *ngFor="let data of searchResult | searchFilter : searchText ">                             
+                    <li class="clearfix " >
+                      <div class="feed d-flex justify-content-between">
+                      <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="../assets/images/profile.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                        <div class="content"><strong>{{data.name}}</strong><small>Qualification : {{data.qualification}}</small>
+                          <div class="full-date"><small>Phone No : {{data.phone}}</small></div>
+                          <div class="full-date"><small>Email : {{data.mail}}</small></div>
+                          <div class="full-date"><small>Aadhar : {{data.aadhar}}</small></div>
+                          <div class="full-date"><small>PAN : {{data.pan}}</small></div>
+                        </div>
+                      </div>
+                    </div>              
+            </ng-container>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</section>   
+

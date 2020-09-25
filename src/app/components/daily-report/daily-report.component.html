@@ -1,0 +1,99 @@
+<section>
+    <div class="container-fluid">
+      <!-- Page Header-->
+      <header> 
+      </header>
+      <div class="row">
+        <div class="col-lg-4">
+            <!-- half day -->
+            <div class="card">
+                <div class="card-header">
+                  <h4 class="h4 display">HALF DAY</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive  pre-scrollable">
+                    <table class="table table-striped table-hover">
+                      <thead>
+                        <tr>
+                          <th>NAMES</th>
+                          <th>ARRIVE</th>
+                          <th>DEPART</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of halfDay">
+                          <td>{{data.name}}</td>
+                          <td>{{data.in*1000 | date:"HH:mm a"}}</td>
+                          <td>{{data.out*1000 | date:"HH:mm a"}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              
+            <!-- half day -->
+        </div>
+        <div class="col-lg-4">
+            <!-- late arrivals -->
+            <div class="card">
+                <div class="card-header">
+                  <h4 class="h4 display">LATE ARRIVALS</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive  pre-scrollable">
+                    <table class="table table-striped table-hover">
+                      <thead>
+                        <tr>
+                            <th>NAMES</th>
+                            <th>ARRIVE</th>
+                            <th>DEPART</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of lateArrive">
+                          <td>{{data.name}}</td>
+                          <td>{{data.in*1000 | date:"HH:mm a"}}</td>
+                          <td>{{data.out*1000 | date:"HH:mm a"}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              
+            <!-- late arrivals -->
+        </div>
+        <div class="col-lg-4">
+        <!-- early departure -->
+        <div class="card">
+            <div class="card-header">
+              <h4 class="h4 display">EARLY DEPATRURE</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive  pre-scrollable">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                        <th>NAMES</th>
+                        <th>ARRIVE</th>
+                        <th>DEPART</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of earlyDepart">
+                      <td>{{data.name}}</td>
+                      <td>{{data.in*1000 | date:"HH:mm a"}}</td>
+                      <td>{{data.out*1000 | date:"HH:mm a"}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+        <!-- early departure -->
+        </div>
+      </div>
+    </div>
+  </section>

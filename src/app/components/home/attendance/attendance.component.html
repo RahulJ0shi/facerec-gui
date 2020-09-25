@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header" style="padding-bottom: 0px;">
+    <div class="row">
+    <h4 class="h4 display col-lg-5 col-md-5">ATTENDANCE</h4>
+    <div class="col-lg-4 col-md-4">
+      <div class="form-group " >
+      <select class="form-control" [(ngModel)]="Departments.branch" (ngModelChange)="filterBybranch(Departments.branch)">        
+        <option selected [ngValue]='All'>All Department</option>
+        <option *ngFor="let d of Departments">{{d.branch}}</option>                                
+      </select>
+    </div>      
+  </div>    
+    <div class="search-container col-lg-3 col-md-3">
+      <form action="">
+        <div class="input-group">
+          <input type="text" name="search" class="form-control" placeholder=" search name " [(ngModel)]="searchText" autocomplete="off">
+        </div>
+      </form>
+    </div>   
+  </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive ">
+      <table class="table table-striped table-hover " id="example">
+        <thead>
+          <tr>
+            <th>NAME</th>
+            <th>ARRIVE</th>
+            <th>DEPART</th>
+          </tr>
+        </thead>
+        <tbody class="">
+          <span>{{errorMsg}}</span>
+          <tr *ngFor="let data of searchResult | searchFilter : searchText | paginate:{itemsPerPage: 7, currentPage:p}">    
+            <ng-container *ngIf="data.flag!=0">                       
+                <td>{{data.name}}</td>
+                <td>{{data.in*1000 | date:"HH:mm a"}}</td>
+                <td>{{data.out*1000 | date:"HH:mm a"}}</td> 
+            </ng-container>                    
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="p=$event" style="text-align:center ;padding-right: 40px;color: #33b35a;"></pagination-controls>
+</div>
+
